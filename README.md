@@ -125,7 +125,7 @@ For users downloading the project from GitHub, open the repository's **Releases*
 ## Run from source
 
 ```powershell
-git clone <repository-url>
+git clone https://github.com/Vivek-code-xyz/FileOrganiser.git
 cd smart-file-organiser
 npm install
 npm start
@@ -161,7 +161,7 @@ git tag v1.0.0
 git push origin v1.0.0
 ```
 
-The GitHub Actions workflow builds the tagged source and uploads only `Smart File Organizer Setup *.exe`. The `release/` build directory remains ignored by Git.
+The GitHub Actions workflow builds the tagged source and uploads only the installer `.exe` from `release/`. The `release/` build directory remains ignored by Git; this does not prevent GitHub Actions from uploading the generated installer to the Release.
 
 ## How to use
 
