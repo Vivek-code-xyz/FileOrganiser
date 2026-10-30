@@ -1,0 +1,11 @@
+node_modules/
+dist/
+release/
+*.log
+.env
+.DS_Store
+Thumbs.db
+
+# Local Electron configuration
+organizer-config.json
+graphify-out/

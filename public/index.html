@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A local workbench for organizing files by extension.">
+    <title>Smart File Organizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <header class="topbar">
+            <div class="brand">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                </span>
+                <div>
+                    <p class="brand-name">Smart File Organizer</p>
+                    <p class="brand-subtitle">Local file sorting</p>
+                </div>
+            </div>
+            <div class="status" id="status" role="status" aria-live="polite">
+                <span class="status-dot"></span>
+                <span id="statusText">Stopped</span>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero">
+                <h1>Sort every file into the right folder.</h1>
+                <p class="hero-copy">Pick a folder, review the rules, and the organizer moves each file by its extension, now or as new files arrive.</p>
+            </section>
+
+            <section class="step workbench">
+                <div class="step-head">
+                    <span class="step-number">1</span>
+                    <h2>Choose a folder</h2>
+                    <button id="chooseBtn" class="button button-light">Choose folder</button>
+                </div>
+                <div class="directory" id="directory">Loading…</div>
+                <p class="directory-meta"><span id="fileSummary">Scanning folder</span></p>
+            </section>
+
+            <section class="step">
+                <div class="step-head">
+                    <span class="step-number">2</span>
+                    <h2>Review the rules</h2>
+                </div>
+                <div class="content-grid">
+                    <div class="card mapping-panel">
+                        <div class="card-head">
+                            <h3>Destination for each type</h3>
+                            <button id="editBtn" class="button button-light">Edit rules</button>
+                        </div>
+                        <p class="section-copy">Each extension is moved into the folder shown beside it. Select Edit rules to rename a destination.</p>
+                        <div id="mappingList" class="mapping-list"></div>
+                    </div>
+                    <aside class="card files-panel">
+                        <div class="card-head">
+                            <h3>In this folder</h3>
+                            <span id="fileCount" class="count">0</span>
+                        </div>
+                        <div id="fileList" class="file-list"><div class="empty">Choose a folder to preview its files.</div></div>
+                    </aside>
+                </div>
+            </section>
+
+            <section class="step">
+                <div class="step-head">
+                    <span class="step-number">3</span>
+                    <h2>Run the organizer</h2>
+                </div>
+                <div class="action-bar">
+                    <p id="actionHint" class="action-hint">Organize now moves the files already here. Start watching also sorts new files as they arrive.</p>
+                    <div class="actions">
+                        <button id="startBtn" class="button button-dark">Start watching</button>
+                        <button id="stopBtn" class="button button-outline">Stop watching</button>
+                        <button id="organizeBtn" class="button button-accent">Organize now</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="activity-section">
+                <div class="activity-head">
+                    <h2>Activity log</h2>
+                    <span id="activityCount" class="count">0 events</span>
+                </div>
+                <div id="activityLog" class="activity-log"><div class="empty">Organizer events will appear here.</div></div>
+            </section>
+        </main>
+        <footer>Smart File Organizer. Your files stay on this computer.</footer>
+    </div>
+    <script src="renderer.js"></script>
+</body>
+</html>
