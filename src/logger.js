@@ -1,18 +1,11 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import os from "node:os";
 
-const logDirectory = path.join(
-    os.homedir(),
-    "Downloads",
-    "OrganizerLogs"
-);
+const logDirectory = path.join(process.cwd(), "logs");
 
-const logFile = path.join(
-    logDirectory,
-    "organizer.log"
-);
+const logFile = path.join(logDirectory, "organizer.log");
 const activityFile = path.join(logDirectory, "activity.jsonl");
+const eventLogFile = path.join(logDirectory, "events.log");
 
 
 // Initialize logging directory
@@ -30,12 +23,17 @@ export async function logMessage(level, message) {
 
     try {
 
-        const timestamp = new Date().toLocaleString();
+        const date = new Date();
+        const timestamp = date.toLocaleString();
 
         const logEntry =
             `[${timestamp}] [${level}] ${message}\n`;
 
         await fs.appendFile(logFile, logEntry);
+        await fs.appendFile(
+            eventLogFile,
+            `[${date.toISOString()}] [${level}] ${message}\n`
+        );
 
         console.log(logEntry.trim());
 
@@ -48,13 +46,19 @@ export async function logMessage(level, message) {
 }
 
 export async function logActivity(type, message, date = new Date()) {
-    await fs.appendFile(activityFile, `${JSON.stringify({
+    const activity = {
         type,
         message,
         time: date.toLocaleTimeString(),
         date: date.toISOString().slice(0, 10),
         timestamp: date.toISOString()
-    })}\n`);
+    };
+
+    await fs.appendFile(activityFile, `${JSON.stringify(activity)}\n`);
+    await fs.appendFile(
+        eventLogFile,
+        `[${activity.timestamp}] [${type.toUpperCase()}] ${message}\n`
+    );
 }
 
 export async function readRecentActivity(days = 3) {

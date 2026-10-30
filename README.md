@@ -30,6 +30,10 @@ Smart File Organizer is a local Electron desktop app for keeping a folder tidy. 
 
 Files never leave the selected folder. The app creates destination folders inside it and uses unique names when a file with the same name already exists.
 
+[**Download the Windows installer (.exe)**](https://github.com/Vivek-code-xyz/FileOrganiser/releases)
+
+Open the latest GitHub release and download the installer from its **Assets** section. The packaged installer includes everything needed to run the app.
+
 ## What makes it useful
 
 | ✨ Capability | What it demonstrates |
@@ -78,6 +82,8 @@ Files never leave the selected folder. The app creates destination folders insid
 - npm 10 or later
 - Git, optional, if cloning the repository
 
+Node.js and npm are required only for running the project from source or building the Windows installer. They are not required after installing the packaged `.exe`.
+
 Check your development tools:
 
 ```powershell
@@ -114,7 +120,7 @@ release\win-unpacked\Smart File Organizer.exe
 
 Keep the complete `win-unpacked` folder together. Do not copy only the executable because it depends on the files beside it.
 
-For users downloading the project from GitHub, open the repository's **Releases** page and download the installer attached to the latest release instead of downloading individual files from the source tree.
+For users downloading the project from GitHub, open the repository's **Releases** page and download the installer attached to the latest release. Release builds are published automatically from version tags, and only the installer `.exe` is uploaded.
 
 ## Run from source
 
@@ -126,6 +132,8 @@ npm start
 ```
 
 The first launch starts with the user's `Downloads` folder selected. Use **Choose folder** to select another directory.
+
+Runtime events and organizer messages are written to the project-local `logs\events.log` file. Recent UI activities are also kept in `logs\activity.jsonl`, while `logs\organizer.log` contains operation messages. The `logs\` directory is ignored by Git.
 
 ## Build the Windows installer
 
@@ -143,6 +151,17 @@ To create an unpacked build for local testing:
 ```powershell
 npm run pack
 ```
+
+## Publish a release
+
+Create and push a version tag to build and publish only the latest installer `.exe` to GitHub Releases:
+
+```powershell
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+The GitHub Actions workflow builds the tagged source and uploads only `Smart File Organizer Setup *.exe`. The `release/` build directory remains ignored by Git.
 
 ## How to use
 

@@ -23,6 +23,11 @@
   "build": {
     "appId": "com.smartfileorganizer.app",
     "productName": "Smart File Organizer",
+    "compression": "maximum",
+    "electronLanguages": [
+      "en-US"
+    ],
+    "removePackageScripts": true,
     "directories": {
       "output": "release"
     },
