@@ -1,8 +1,50 @@
 # Smart File Organizer
 
+<div align="center">
+  <img src="assets/icon.png" alt="Smart File Organizer icon" width="112">
+
+  <h3>A friendly desktop app for turning folder chaos into clear categories.</h3>
+
+  <a href="https://github.com/Vivek-code-xyz/FileOrganiser">
+    <img src="https://img.shields.io/github/stars/Vivek-code-xyz/FileOrganiser?style=for-the-badge&logo=github&label=Stars" alt="GitHub stars">
+  </a>
+  <a href="https://github.com/Vivek-code-xyz/FileOrganiser/issues">
+    <img src="https://img.shields.io/github/issues/Vivek-code-xyz/FileOrganiser?style=for-the-badge&logo=github&label=Issues" alt="GitHub issues">
+  </a>
+  <img src="https://img.shields.io/badge/platform-Windows-0078D6?style=for-the-badge&logo=windows" alt="Windows">
+  <img src="https://img.shields.io/badge/Electron-45-47848F?style=for-the-badge&logo=electron&logoColor=white" alt="Electron 45">
+  <img src="https://img.shields.io/badge/license-ISC-blue?style=for-the-badge" alt="ISC license">
+
+  <br><br>
+
+  <img src="https://readme-typing-svg.demolab.com?font=Inter&weight=600&size=22&duration=2800&pause=900&color=4F46E5&center=true&vCenter=true&width=700&lines=Choose+a+folder+%E2%86%92+review+the+rules+%E2%86%92+organize;Learn+Electron+through+a+useful+desktop+app;Keep+your+files+tidy%2C+locally+and+privately" alt="Dynamic project highlights">
+
+  <p>
+    <strong>Educational project</strong> · Local-first · No account · No cloud uploads
+  </p>
+</div>
+
 Smart File Organizer is a local Electron desktop app for keeping a folder tidy. Choose a target folder, review the detected files, configure extension rules, organize existing files, or keep the folder organized in real time.
 
+> **Built to learn by doing.** This project is intentionally approachable for students and developers learning Electron, IPC, file-system APIs, watchers, and desktop app packaging.
+
 Files never leave the selected folder. The app creates destination folders inside it and uses unique names when a file with the same name already exists.
+
+## What makes it useful
+
+| ✨ Capability | What it demonstrates |
+|---|---|
+| **Organize now** | Safe file moves, extension categorization, and duplicate-name handling |
+| **Start watching** | Real-time file-system events with Chokidar |
+| **Edit rules** | User-configurable mappings persisted between launches |
+| **Local-first design** | Electron main/preload/renderer boundaries and context isolation |
+| **Windows packaging** | Building an installable `.exe` with Electron Builder |
+
+## Tech stack
+
+<div align="center">
+  <img src="https://skillicons.dev/icons?i=electron,nodejs,js,html,css,npm,git" alt="Electron, Node.js, JavaScript, HTML, CSS, npm, and Git">
+</div>
 
 ## Features
 
@@ -16,6 +58,10 @@ Files never leave the selected folder. The app creates destination folders insid
 - Remembers the selected folder and custom rules between launches.
 - Ignores temporary download files such as `.crdownload`, `.part`, and `.tmp`.
 - Runs locally without an account or cloud service.
+
+## Project tags
+
+`#electron` `#javascript` `#nodejs` `#desktop-app` `#file-organizer` `#windows` `#privacy-first` `#learning-project`
 
 ## Requirements
 
@@ -276,4 +322,14 @@ npm start
 
 ## License
 
-The repository does not currently declare a software license. Add a license before redistributing the project.
+This is an **educational project** released under the **ISC License**, as declared in [`package.json`](package.json).
+
+The ISC License permits you to use, copy, modify, and redistribute the project, including for commercial purposes, provided that the original copyright and permission notice remain included. The software is provided **as-is**, without warranties or guarantees. Review the full license text and add a `LICENSE` file before publishing a redistributed version.
+
+> This README describes the intended license metadata; it is not legal advice.
+
+---
+
+<div align="center">
+  <sub>Made for learning, experimenting, and keeping folders tidy.</sub>
+</div>
