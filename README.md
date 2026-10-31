@@ -120,7 +120,7 @@ release\win-unpacked\Smart File Organizer.exe
 
 Keep the complete `win-unpacked` folder together. Do not copy only the executable because it depends on the files beside it.
 
-For users downloading the project from GitHub, open the repository's **Releases** page and download the installer attached to the latest release. Release builds are published automatically from version tags, and only the installer `.exe` is uploaded.
+For users downloading the project from GitHub, open the repository's **Releases** page and download the installer attached to the latest release.
 
 ## Run from source
 
@@ -152,16 +152,15 @@ To create an unpacked build for local testing:
 npm run pack
 ```
 
-## Publish a release
+## Publish a release manually
 
-Create and push a version tag to build and publish only the latest installer `.exe` to GitHub Releases:
+Build the latest installer locally:
 
 ```powershell
-git tag v1.0.0
-git push origin v1.0.0
+npm run dist
 ```
 
-The GitHub Actions workflow builds the tagged source and uploads only the installer `.exe` from `release/`. The `release/` build directory remains ignored by Git; this does not prevent GitHub Actions from uploading the generated installer to the Release.
+Then create a GitHub Release from a version tag and upload `release\Smart File Organizer Setup 1.0.0.exe` manually. Only the installer `.exe` is intended for release distribution; other generated files remain ignored by Git.
 
 ## How to use
 

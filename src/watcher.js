@@ -17,6 +17,11 @@ let activeMappings = {};
 
 const processingFiles = new Set();
 
+const downloadWriteFinishOptions = {
+    stabilityThreshold: 1500,
+    pollInterval: 100
+};
+
 export function getDownloadsPath() {
     return watchedPath;
 }
@@ -63,6 +68,9 @@ export async function startWatcher(onEvent, targetPath = watchedPath, mappings =
         persistent: true,
         ignoreInitial: true,
         depth: 0,
+        // Browsers can create the final filename before they finish writing it.
+        // Wait for the size to remain unchanged before moving the file.
+        awaitWriteFinish: downloadWriteFinishOptions,
         ignored: [
             /(^|[\/\\])\./,
             /\.crdownload$/,
